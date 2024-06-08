@@ -1,3 +1,20 @@
+/* agrego variables al CSS para aplicar globalmente las fuentes y tamaños */
+:root {
+    --primary-color: #a491d2;
+    --secondary-color: #f0f0f0;
+    --border-color: #ccc;
+    --font-color: #3d3d3d;
+    --secondary-font-color: #555;
+    --font-family: 'Roboto', sans-serif;
+    --avatar-size: 43px;
+    --avatar-small-size: 35px;
+    --font-size-normal: 16px;
+    --font-size-small: 12px;
+    --padding: 20px;
+    --padding-small: 10px;
+}
+
+/* aplico reset de estilos */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,11 +22,12 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-family);
     height: 100vh;
     margin: 0;
 }
 
+/* Layout flex */
 .container {
     display: flex;
     height: 100vh;
@@ -20,9 +38,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 30%;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;   /* Agregar un scroll vertical para la columna del chat */
+    background-color: var(--secondary-color);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
 }
 
 .right-column {
@@ -30,7 +48,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: var(--padding);
 }
 
 .hands {
@@ -42,15 +60,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
-}
-
-.avatar {
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    margin-right: 10px;
+    padding: 25px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .info-perfil {
@@ -60,18 +71,23 @@ body {
     justify-content: center;
 }
 
-.info-perfil h1 {
-    font-family: "Roboto", sans-serif;
+.avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+/*aquí mejore la semantica juntando las clases para reducir repeticiones */
+.info-perfil h1, .contact-info h1 {
     font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    color: #3d3d3d;
+    font-size: var(--font-size-normal);
+    color: var(--font-color);
 }
 
-.info-perfil p {
-    font-size: 12px;
+.info-perfil p, .contact-info p {
+    font-size: var(--font-size-small);
     margin: 0;
-    color: #555;
+    color: var(--secondary-font-color);
 }
 
 .perfil-icons i {
@@ -84,18 +100,20 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    border-bottom: 1px solid #ccc;
+    padding: 37px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .chat-boton {
-    background-color: #a491d2;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+    font-weight: 400;
+    font-size: 18px;
     color: white;
     border: none;
-    padding: 10px 20px;
     cursor: pointer;
+    width: 220px;
+    height: 70px;
+    padding: 15px 30px;
 }
 
 .chat-boton:hover {
@@ -104,15 +122,13 @@ body {
 
 .left-column ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0; /* Eliminar el margen del ul */
 }
 
 .left-column li {
     display: flex;
     align-items: center;
-    padding: 18px 20px; /* Asegurar padding lateral */
-    border-bottom: 1px solid #ccc;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .left-column li img.avatares {
@@ -129,20 +145,6 @@ body {
     justify-content: center;
 }
 
-.contact-info h1 {
-    font-weight: normal;
-    font-family: "Roboto", sans-serif;
-    color: #3d3d3d;
-    font-size: 16px;
-    margin: 0;
-}
-
-.contact-info p {
-    font-size: 12px;
-    margin: 0;
-    color: #555;
-}
-
 .content {
     text-align: center;
     width: 100%;
@@ -153,11 +155,6 @@ body {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
-}
-
-.hands {
-    width: 220px;
-    height: 220px;
 }
 
 .content h1 {
@@ -172,7 +169,7 @@ body {
     line-height: 1.5;
 }
 
-/* Media Queries agregadas para adaptabilidad */
+/* las media queries para la adaptabilidad */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -184,7 +181,7 @@ body {
         border-right: none;
     }
     .right-column {
-        padding: 10px;
+        padding: var(--padding-small);
     }
     .chat-boton {
         padding: 15px 30px;
@@ -202,11 +199,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    .profile-header {
+    .perfil-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    .profile-icons {
+    .perfil-icons {
         margin-top: 10px;
     }
     .content h1 {
@@ -219,12 +216,9 @@ body {
         padding: 10px 20px;
         font-size: 0.875em;
     }
-    .left-column li img.avatares {
-        width: 35px;
-        height: 35px;
-    }
+    .left-column li img.avatares,
     .avatar {
-        width: 35px;
-        height: 35px;
+        width: var(--avatar-small-size);
+        height: var(--avatar-small-size);
     }
 }
