@@ -7,14 +7,14 @@
     --secondary-font-color: #555;
     --font-family: 'Roboto', sans-serif;
     --avatar-size: 43px;
-    --avatar-small-size: 35px;
+    --avatar-small-size: 42px;
     --font-size-normal: 16px;
     --font-size-small: 12px;
     --padding: 20px;
     --padding-small: 10px;
 }
 
-/* aplico reset de estilos */
+/* reset a los estilos predeterminados del navegador */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +27,7 @@ body {
     margin: 0;
 }
 
-/* Layout flex */
+/* Layout flex padre */
 .container {
     display: flex;
     height: 100vh;
@@ -77,7 +77,7 @@ body {
     border-radius: 50%;
     margin-right: 10px;
 }
-/*aquí mejore la semantica juntando las clases para reducir repeticiones */
+/*aquí mejore la semantica juntando las clases para reducir repeticiones de codigos */
 .info-perfil h1, .contact-info h1 {
     font-weight: 400;
     font-size: var(--font-size-normal);
@@ -100,7 +100,7 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 37px;
+    padding: 38px;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -168,8 +168,7 @@ body {
     font-weight: normal;
     line-height: 1.5;
 }
-
-/* las media queries para la adaptabilidad */
+/*Media Queries para la adaptabilidad*/
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -200,7 +199,7 @@ body {
 
 @media (max-width: 480px) {
     .perfil-header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
     }
     .perfil-icons {
