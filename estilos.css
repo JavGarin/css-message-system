@@ -77,8 +77,8 @@ body {
     border-radius: 50%;
     margin-right: 10px;
 }
-/*aquí mejore la semantica juntando las clases para reducir repeticiones de codigos */
-.info-perfil h1, .contact-info h1 {
+
+.info-perfil h1, .contact-info h1 {      /*aquí mejore la semantica juntando las clases para reducir repeticiones de codigos */
     font-weight: 400;
     font-size: var(--font-size-normal);
     color: var(--font-color);
@@ -168,8 +168,8 @@ body {
     font-weight: normal;
     line-height: 1.5;
 }
-/*Media Queries para la adaptabilidad*/
-@media (max-width: 768px) {
+
+@media (max-width: 768px) {     /*Media Queries para la adaptabilidad*/
     .container {
         flex-direction: column;
     }
